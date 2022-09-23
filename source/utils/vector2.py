@@ -29,14 +29,25 @@ class Vector2(np.ndarray):
     def abs_diff(self, other: 'Vector2'):
         return abs(other.xf - self.xf) + abs(other.yf - self.yf)
 
-    def abs_diff_tuple(self, other: 'Vector2'):
-        return Vector2(abs(other.xf - self.xf), abs(other.yf - self.yf))
+    def abs_diff_vec(self, other: 'Vector2'):
+        return self.__class__(abs(self.xf - other.xf), abs(self.yf - other.yf))
+
+    def abs(self):
+        return self.__class__(abs(self.xf), abs(self.yf))
 
     def rounded(self):
-        return Vector2(round(self.xf), round(self.yf))
+        return self.__class__(round(self.xf), round(self.yf))
 
     def distance(self):
         return ((self.xf ** 2) + (self.yf ** 2)) ** .5
+
+    @classmethod
+    def zero(cls):
+        return cls(0, 0)
+
+    @classmethod
+    def one(cls):
+        return cls(1, 1)
 
     @property
     def x(self):
