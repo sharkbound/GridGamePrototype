@@ -15,6 +15,7 @@ class MainMenuView(arc.View):
         arc.start_render()
 
         self.bounds.shift(self.shift)
+
         arc.draw_circle_filled(*self.bounds.top_left, 10, arc.color.RED)
         arc.draw_circle_filled(*self.bounds.top_right, 10, arc.color.RED_BROWN)
         arc.draw_circle_filled(*self.bounds.bottom_right, 10, arc.color.BLUE)

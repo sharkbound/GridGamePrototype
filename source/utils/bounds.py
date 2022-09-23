@@ -14,11 +14,11 @@ class Bounds:
 
     @classmethod
     def from_size(cls, bottom_left: Vector2, size: Vector2):
-        return cls(bottom_left, bottom_left + size)
+        return cls(bottom_left, bottom_left + size.abs())
 
     @property
     def size(self):
-        return (self.top_right - self.bottom_left).abs()
+        return (self.bottom_left - self.top_right).abs()
 
     def recalculate_corners(self, bottom_left: Vector2, top_right: Vector2):
         self.bottom_left = bottom_left
