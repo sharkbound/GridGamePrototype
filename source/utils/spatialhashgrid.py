@@ -42,9 +42,7 @@ class SpatialHashGrid:
         return tuple(self.buckets.get(self.hash(vector), ()))
 
     def get_items_in_bounds(self, bounds: Bounds):
-        print('--start--')
         items = set()
         for cell in self.iter_cell_indexes_for_bounds(bounds):
-            print(cell)
             items.update(self.buckets.get(cell, []))
         return items

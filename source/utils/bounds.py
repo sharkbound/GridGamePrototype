@@ -17,6 +17,10 @@ class Bounds:
     def from_size(cls, bottom_left: Vector2, size: Vector2):
         return cls(bottom_left, bottom_left + size.abs())
 
+    @classmethod
+    def from_vector(cls, vector: Vector2):
+        return cls(vector, vector)
+
     @property
     def size(self):
         return (self.bottom_left - self.top_right).abs()
