@@ -31,8 +31,10 @@ class MainMenuView(arc.View):
         super().__init__()
         self.mouse_pos = Vector2.zero()
         self.scrolling_container = ScrollingContainer()
-        self.objects = {'dot': CircleObject(self.scrolling_container, Vector2(100, 100), 20, arc.color.RED)}
-        self.scrolling_container.add_item('dot', self.objects['dot'].bounds)
+        self.objects = {'dot1': CircleObject(self.scrolling_container, Vector2(100, 100), 20, arc.color.RED),
+                        'dot2': CircleObject(self.scrolling_container, Vector2(-100, -100), 20, arc.color.TEAL)}
+        self.scrolling_container.add_item('dot1', self.objects['dot1'].bounds)
+        self.scrolling_container.add_item('dot2', self.objects['dot2'].bounds)
         self.mouse_buttons = set()
 
     def on_mouse_motion(self, x: int, y: int, dx: int, dy: int):
